@@ -95,23 +95,11 @@ class PostsManager {
    @discardableResult
    private func savePosts(_ posts:[Post]) -> Bool {
       
-         guard let postsURL = postsFileURL() else {
-            return false
-         }
+      guard let postsURL = postsFileURL() else {
+         return false
+      }
          
-         do {
-            let encodedPostsData = try JSONEncoder().encode(posts)
-            
-            try encodedPostsData.write(to: postsURL)
-            
-            return true
-         }
-         catch (let encodeError) {
-            #if DEBUG
-            print("PostsModel -> Encoding POSTs error: \(encodeError.localizedDescription)")
-            #endif
-            return false
-         }
+      return DocumentsFolderWriter.writeEntity(posts, toURL: postsURL)
    }
    
    /// - Returns: Not empty array or nil

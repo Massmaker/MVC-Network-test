@@ -99,25 +99,11 @@ class UsersManager {
    @discardableResult
    private func saveUserToDocuments(user:User) -> Bool {
       
-      var saved = false
-      
       guard let userFileURL = userFileURL(for: user.id) else {
-         return saved
+         return false
       }
       
-      do {
-         let encodedUser = try JSONEncoder().encode(user)
-         try encodedUser.write(to: userFileURL, options: Data.WritingOptions.atomic)
-         saved = true
-      }
-      catch(let saveError) {
-         #if DEBUG
-         print("saveUserToDocuments ERROR: \(saveError.localizedDescription)")
-         #endif
-         saved = false
-      }
-      
-      return saved
+      return DocumentsFolderWriter.writeEntity(user, toURL: userFileURL)
    }
 }
 

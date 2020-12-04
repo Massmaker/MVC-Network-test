@@ -108,23 +108,10 @@ class CommentsManager {
    private func saveComments(_ comments:[Comment], for postId:Int) -> Bool {
       
       guard let commentsFileURL = commentsFileURL(for: postId) else {
-         
          return false
       }
       
-      do {
-         let encodedCommentsData = try JSONEncoder().encode(comments)
-         
-         try encodedCommentsData.write(to: commentsFileURL)
-         
-         return true
-      }
-      catch (let encodeError) {
-         #if DEBUG
-         print("CommentsModel -> Encoding POSTs error: \(encodeError.localizedDescription)")
-         #endif
-         return false
-      }
+      return DocumentsFolderWriter.writeEntity(comments, toURL: commentsFileURL)
    }
 }
 
