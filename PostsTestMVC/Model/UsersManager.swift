@@ -51,6 +51,7 @@ class UsersManager: DataManagerType {
                print("User '\(user.id)' was saved to documents: \(savedUser)")
                #endif
                
+               //anyway use the saved-to-disk USER or don`t return result
                if let user = weakerSelf.loadUserFromStorageBy(userId) {
                   performOnMainQueue {
                      completion?(user) //SUCCESS getUserWith

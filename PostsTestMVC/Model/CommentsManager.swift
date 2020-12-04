@@ -56,6 +56,7 @@ class CommentsManager: DataManagerType {
                print("Comments Saved: '\(saved)'")
                #endif
                
+               //anyway use the saved-to-disk COMMENTs or don`t return result
                if let storedComments = self?.loadCommentsFromStorage(for: postId) {
                   performOnMainQueue {
                      completion(storedComments) //success

@@ -72,6 +72,8 @@ class PostsManager: DataManagerType {
                print("PostsModel -> POSTs saved to Documents: \(success)")
                #endif
                
+               //anyway use the saved-to-disk POSTs or don`t return result
+               // the other option is to return loaded posts even if they were not written to disk - not specified in the test task
                if let newPosts = weakSelf.readPostsFromDocumentsFile() {
                   performOnMainQueue {
                      completion(newPosts)
