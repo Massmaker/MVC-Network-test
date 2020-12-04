@@ -50,7 +50,7 @@ class CommentsManager {
                   return
                }
                
-               let saved = weakSelf.saveComments(receivedComments, for: postId)
+               let saved = weakSelf.saveCommentsToStorage(receivedComments, for: postId)
                   
                #if DEBUG
                print("Comments Saved: '\(saved)'")
@@ -90,7 +90,7 @@ class CommentsManager {
    }
    
    @discardableResult
-   private func saveComments(_ comments:[Comment], for postId:Int) -> Bool {
+   private func saveCommentsToStorage(_ comments:[Comment], for postId:Int) -> Bool {
       
       guard let commentsFileURL = commentsFileURL(for: postId) else {
          return false

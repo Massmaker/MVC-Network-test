@@ -67,7 +67,7 @@ class PostsManager {
                   return
                }
                
-               let success = weakSelf.savePosts(posts)
+               let success = weakSelf.savePostsToStorage(posts)
                
                #if DEBUG
                print("PostsModel -> POSTs saved to Documents: \(success)")
@@ -93,7 +93,7 @@ class PostsManager {
    }
    
    @discardableResult
-   private func savePosts(_ posts:[Post]) -> Bool {
+   private func savePostsToStorage(_ posts:[Post]) -> Bool {
       
       guard let postsURL = postsFileURL() else {
          return false
