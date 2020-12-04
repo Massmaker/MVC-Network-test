@@ -69,6 +69,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC80B235257AC5D00053EB5D /* WorkWithDocumentsFolder */ = {
+			isa = PBXGroup;
+			children = (
+				BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */,
+				BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */,
+			);
+			path = WorkWithDocumentsFolder;
+			sourceTree = "<group>";
+		};
+		BC80B236257AC5F20053EB5D /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				BC80B232257AC1B60053EB5D /* DataManagerType.swift */,
+				BCDEDF5D25794124002DEFAB /* PostsManager.swift */,
+				BCDEDF7225795A23002DEFAB /* CommentsManager.swift */,
+				BCDEDF7525795A32002DEFAB /* UsersManager.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
 		BCDEDF32257936D5002DEFAB = {
 			isa = PBXGroup;
 			children = (
@@ -106,14 +126,10 @@
 		BCDEDF572579379E002DEFAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BCDEDF58257937C5002DEFAB /* ModelCodables.swift */,
-				BC80B232257AC1B60053EB5D /* DataManagerType.swift */,
-				BCDEDF5D25794124002DEFAB /* PostsManager.swift */,
-				BCDEDF7225795A23002DEFAB /* CommentsManager.swift */,
-				BCDEDF7525795A32002DEFAB /* UsersManager.swift */,
-				BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */,
-				BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */,
 				BCDEDF61257941F0002DEFAB /* StoragePaths.swift */,
+				BCDEDF58257937C5002DEFAB /* ModelCodables.swift */,
+				BC80B236257AC5F20053EB5D /* DataManagers */,
+				BC80B235257AC5D00053EB5D /* WorkWithDocumentsFolder */,
 			);
 			path = Model;
 			sourceTree = "<group>";
