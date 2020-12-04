@@ -86,22 +86,7 @@ class CommentsManager {
          return nil
       }
       
-      do {
-         let commentsData = try Data(contentsOf: commentsFileURL)
-         let comments = try JSONDecoder().decode([Comment].self, from: commentsData)
-         
-         if comments.isEmpty {
-            return nil
-         }
-         
-         return comments
-      }
-      catch (let decodeError) {
-         #if DEBUG
-         print(#function + "Error decoding COMMENTS for POST ID '\(postId)': \(decodeError.localizedDescription)"  )
-         #endif
-      }
-      return nil
+      return DocumentsFolderReader.readDataFromDocuments(for: .comments, at: commentsFileURL)
    }
    
    @discardableResult

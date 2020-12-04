@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC80B22D257AB8C50053EB5D /* DocumentsFolderWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */; };
+		BC80B230257ABDC70053EB5D /* DocumentsFolderReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */; };
 		BCDEDF3F257936D5002DEFAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF3E257936D5002DEFAB /* AppDelegate.swift */; };
 		BCDEDF41257936D5002DEFAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF40257936D5002DEFAB /* SceneDelegate.swift */; };
 		BCDEDF43257936D5002DEFAB /* PostsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF42257936D5002DEFAB /* PostsScreenViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFolderWriter.swift; sourceTree = "<group>"; };
+		BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFolderReader.swift; sourceTree = "<group>"; };
 		BCDEDF3B257936D5002DEFAB /* PostsTestMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostsTestMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDEDF3E257936D5002DEFAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCDEDF40257936D5002DEFAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				BCDEDF7225795A23002DEFAB /* CommentsManager.swift */,
 				BCDEDF7525795A32002DEFAB /* UsersManager.swift */,
 				BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */,
+				BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */,
 				BCDEDF61257941F0002DEFAB /* StoragePaths.swift */,
 			);
 			path = Model;
@@ -220,6 +223,7 @@
 				BC80B22D257AB8C50053EB5D /* DocumentsFolderWriter.swift in Sources */,
 				BCDEDF43257936D5002DEFAB /* PostsScreenViewController.swift in Sources */,
 				BCDEDF6E25795944002DEFAB /* PostDetailsViewController.swift in Sources */,
+				BC80B230257ABDC70053EB5D /* DocumentsFolderReader.swift in Sources */,
 				BCDEDF62257941F0002DEFAB /* StoragePaths.swift in Sources */,
 				BCDEDF3F257936D5002DEFAB /* AppDelegate.swift in Sources */,
 				BCDEDF6925795232002DEFAB /* PostsModel.swift in Sources */,

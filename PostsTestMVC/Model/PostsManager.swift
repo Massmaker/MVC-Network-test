@@ -113,23 +113,7 @@ class PostsManager {
          return nil
       }
       
-      do {
-         let data = try Data(contentsOf: postsURL)
-         
-         let posts = try JSONDecoder().decode([Post].self, from: data)
-         
-         if posts.isEmpty {
-            return nil
-         }
-         
-         return posts
-      }
-      catch (let dataReadingError) {
-         #if DEBUG
-         print("PostsModel -> ERROR decoding posts from file: \(dataReadingError.localizedDescription)")
-         #endif
-         return nil
-      }
+      return DocumentsFolderReader.readDataFromDocuments(for: .posts, at: postsURL)
    }
 }
 

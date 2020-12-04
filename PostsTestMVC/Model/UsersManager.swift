@@ -74,26 +74,12 @@ class UsersManager {
    
    private func loadUserFromStorageBy(_ userId:Int) -> User? {
       
-      var aUser:User?
-      
       guard let userFileURL = userFileURL(for: userId),
-            FileManager.default.fileExists(atPath: userFileURL.path)
-      else {
+            FileManager.default.fileExists(atPath: userFileURL.path) else {
          return nil
       }
       
-      do {
-         let data = try Data(contentsOf: userFileURL)
-         let user = try JSONDecoder().decode(User.self, from: data)
-         aUser = user
-      }
-      catch (let decodeError) {
-         #if DEBUG
-         print("loadUserFromStorageBy '\(userId)' ERROR: \(decodeError.localizedDescription)")
-         #endif
-      }
-      
-      return aUser
+      return DocumentsFolderReader.readDataFromDocuments(for: .user, at: userFileURL)
    }
    
    @discardableResult
