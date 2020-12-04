@@ -17,6 +17,10 @@ class DocumentsFolderReader {
    
    class func readDataFromDocuments<T:Decodable>(for dataType:DataType, at url: URL) -> T? {
       
+      guard FileManager.default.fileExists(atPath: url.path) else {
+         return nil
+      }
+      
       var result:T?
       
       do {

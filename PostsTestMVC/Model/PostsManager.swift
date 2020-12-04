@@ -7,17 +7,16 @@
 
 import Foundation
 
-class PostsManager {
+class PostsManager: DataManagerType {
+
+   private var _isPostsInProcess = false
    
+   //MARK: DataManagerType
    var dataLoader:DataLoader?
    
-   private static var fileManager = FileManager.default
-   private var _isPostsInProcess = false
-   private lazy var postsQueue:DispatchQueue = DispatchQueue(label: "Posts.Serving.Queue")
+   internal lazy var workerQueue: DispatchQueue = DispatchQueue(label: "Posts.Serving.Queue")
    
-   
-   convenience init(dataLoader:DataLoader?) {
-      self.init()
+   required init(dataLoader:DataLoader?) {
       self.dataLoader = dataLoader
    }
    
@@ -39,7 +38,7 @@ class PostsManager {
       
       _isPostsInProcess = true
       
-      postsQueue.async {[unowned self] in
+      workerQueue.async {[unowned self] in
          
          if let storedPosts = readPostsFromDocumentsFile() {
             #if DEBUG
@@ -109,20 +108,19 @@ class PostsManager {
          return nil
       }
       
-      guard Self.fileManager.fileExists(atPath: postsURL.path) else {
-         return nil
-      }
-      
       return DocumentsFolderReader.readDataFromDocuments(for: .posts, at: postsURL)
    }
 }
 
 //MARK: -
+
 fileprivate func postsFileURL() -> URL? {
+
    guard let doscURL = documentsURL() else {
       return nil
    }
    
    let postsFileURL = doscURL.appendingPathComponent("Posts.bin")
+
    return postsFileURL
 }

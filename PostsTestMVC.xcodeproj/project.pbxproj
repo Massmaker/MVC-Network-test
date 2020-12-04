@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC80B22D257AB8C50053EB5D /* DocumentsFolderWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */; };
 		BC80B230257ABDC70053EB5D /* DocumentsFolderReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */; };
+		BC80B233257AC1B60053EB5D /* DataManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80B232257AC1B60053EB5D /* DataManagerType.swift */; };
 		BCDEDF3F257936D5002DEFAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF3E257936D5002DEFAB /* AppDelegate.swift */; };
 		BCDEDF41257936D5002DEFAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF40257936D5002DEFAB /* SceneDelegate.swift */; };
 		BCDEDF43257936D5002DEFAB /* PostsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDEDF42257936D5002DEFAB /* PostsScreenViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		BC80B22C257AB8C50053EB5D /* DocumentsFolderWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFolderWriter.swift; sourceTree = "<group>"; };
 		BC80B22F257ABDC70053EB5D /* DocumentsFolderReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFolderReader.swift; sourceTree = "<group>"; };
+		BC80B232257AC1B60053EB5D /* DataManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerType.swift; sourceTree = "<group>"; };
 		BCDEDF3B257936D5002DEFAB /* PostsTestMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostsTestMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDEDF3E257936D5002DEFAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCDEDF40257936D5002DEFAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				BCDEDF58257937C5002DEFAB /* ModelCodables.swift */,
+				BC80B232257AC1B60053EB5D /* DataManagerType.swift */,
 				BCDEDF5D25794124002DEFAB /* PostsManager.swift */,
 				BCDEDF7225795A23002DEFAB /* CommentsManager.swift */,
 				BCDEDF7525795A32002DEFAB /* UsersManager.swift */,
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCDEDF5425793728002DEFAB /* DataLoader.swift in Sources */,
+				BC80B233257AC1B60053EB5D /* DataManagerType.swift in Sources */,
 				BCDEDF7A25795E90002DEFAB /* CommentsModel.swift in Sources */,
 				BCDEDF8025796804002DEFAB /* GlobalFunctions.swift in Sources */,
 				BCDEDF59257937C5002DEFAB /* ModelCodables.swift in Sources */,

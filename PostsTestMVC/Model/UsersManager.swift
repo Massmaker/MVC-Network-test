@@ -6,18 +6,18 @@
 //
 
 import Foundation
-class UsersManager {
+class UsersManager: DataManagerType {
    
-   private lazy var usersQueue = DispatchQueue(label: "Users.Serving.Queue")
-   
+   //MARK: DataManagerType
    var dataLoader:DataLoader?
    
-   convenience init(dataLoader:DataLoader?) {
-      self.init()
+   internal lazy var workerQueue: DispatchQueue = DispatchQueue(label: "Users.Serving.Queue")
+   
+   required init(dataLoader:DataLoader?) {
       self.dataLoader = dataLoader
    }
    
-   
+   //MARK: -
    func getUserWithId(userId:Int, completion:((User?) -> ())? = nil) {
       guard userId > 0 else {
          performOnMainQueue {
@@ -27,7 +27,7 @@ class UsersManager {
          return
       }
       
-      usersQueue.async {[weak self] in
+      workerQueue.async {[weak self] in
          if let storedUser = self?.loadUserFromStorageBy(userId) {
             performOnMainQueue {
                completion?(storedUser)
@@ -74,8 +74,7 @@ class UsersManager {
    
    private func loadUserFromStorageBy(_ userId:Int) -> User? {
       
-      guard let userFileURL = userFileURL(for: userId),
-            FileManager.default.fileExists(atPath: userFileURL.path) else {
+      guard let userFileURL = userFileURL(for: userId) else {
          return nil
       }
       
@@ -93,11 +92,15 @@ class UsersManager {
    }
 }
 
+//MARK: -
+
 fileprivate func userFileURL(for userId:Int) -> URL? {
+   
    guard let doscURL = documentsURL() else {
       return nil
    }
    
    let postsFileURL = doscURL.appendingPathComponent("User-\(userId).bin")
+   
    return postsFileURL
 }

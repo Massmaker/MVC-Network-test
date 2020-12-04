@@ -7,22 +7,22 @@
 
 import Foundation
 
-class CommentsManager {
+class CommentsManager: DataManagerType {
    
-   private lazy var commentsQueue = DispatchQueue(label: "Comments.Serving.Queue")
-   
+   //MARK: DataManagerType
    var dataLoader:DataLoader?
    
-   convenience init(dataLoader:DataLoader?) {
-      self.init()
+   internal lazy var workerQueue: DispatchQueue = DispatchQueue(label: "Comments.Serving.Queue")
+   
+   required init(dataLoader:DataLoader?) {
       self.dataLoader = dataLoader
    }
    
-   
+   //MARK: -
    /// - Returns: an array of comments or an empty array in the **completion** block
    func getCommentsFor(_ postId:Int, completion:@escaping (([Comment]) -> ())) {
       
-      commentsQueue.async { [weak self]  in
+      workerQueue.async { [weak self]  in
          
          // return previously loaded comments for this post
          if let storedComments = self?.loadCommentsFromStorage(for: postId) {
@@ -81,8 +81,7 @@ class CommentsManager {
    /// - Returns: Not empty comments array or nil
    private func loadCommentsFromStorage(for postId:Int) -> [Comment]? {
       
-      guard let commentsFileURL = commentsFileURL(for: postId),
-            FileManager.default.fileExists(atPath: commentsFileURL.path) else {
+      guard let commentsFileURL = commentsFileURL(for: postId) else {
          return nil
       }
       
@@ -100,11 +99,15 @@ class CommentsManager {
    }
 }
 
+//MARK: -
+
 fileprivate func commentsFileURL(for postId:Int) -> URL? {
+   
    guard let doscURL = documentsURL() else {
       return nil
    }
    
    let postsFileURL = doscURL.appendingPathComponent("Comments-\(postId).bin")
+   
    return postsFileURL
 }
